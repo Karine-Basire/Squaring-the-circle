@@ -1,0 +1,40 @@
+				BY KIN
+
+
+REQUÊTES TRES FACILE:
+
+1- SHOW TABLES;
+
+2-SELECT * FROM `film`;
+
+3-SELECT titre AS "titre film" FROM `film`;
+
+4-SELECT titre FROM `film` WHERE id_genre = "NULL";
+
+5-SELECT titre FROM film WHERE date_debut_affiche BETWEEN '2000-01-01' AND '2000-12-30' 
+ORDER BY id_film DESC
+LIMIT 10;
+__________________________________________________________________________
+
+REQUÊTES MOINS FACILES:
+
+1-SELECT DISTINCT titre FROM film WHERE id_genre <= 2 AND titre LIKE 'A%';
+
+2-SELECT SUM(nbr_siege) AS "nombre siege" FROM salle;
+
+3-SELECT SUM(nbr_siege) FROM salle GROUP BY etage_salle;
+
+4-SELECT nom_salle FROM `salle` WHERE nbr_siege < 200;
+
+5-SELECT titre AS titre_cool FROM `film` WHERE id_genre = 2 AND titre LIKE '%day%';
+
+__________________________________________________________________________
+
+REQUETES PAS FACILES:
+
+1-SELECT FLOOR(AVG(prix)) AS "avg abo", COUNT(duree_abo) AS nbr_abo FROM abonnement;
+
+2-SELECT MAX(id_film) AS "max id film" FROM `film` WHERE date_debut_affiche BETWEEN "1980-01-01" AND "1999-12-31" GROUP BY id_genre = "action";
+
+3-SELECT date_fin_affiche AS "last movie", film.id_film, COUNT(historique_membre.id_film) FROM film JOIN historique_membre ON film.id_film = historique_membre.id_film GROUP BY film.id_film ORDER BY film.id_film in(2557,2741)DESC;
+
